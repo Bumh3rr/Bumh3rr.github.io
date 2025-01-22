@@ -1,0 +1,138 @@
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
+html,
+body {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #D2D2D2;
+    text-align: center;
+    position: relative;
+    
+}
+
+.parent {
+    min-height: 100vh;
+    min-width: 100vw;
+    position: absolute;
+    overflow-x: hidden;
+    z-index: 0;
+}
+
+.parent h3 {
+    position: fixed;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15em;
+    line-height: 15rem;
+    color: #25283B;
+    z-index: 0;
+}
+
+.parent::before {
+    position: fixed;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    content: attr(data-content);
+    font-weight: 700;
+    font-size: 15em;
+    line-height: 15rem;
+    color: #25283B;
+    -webkit-text-stroke: 2px #454444;
+    color: transparent;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.container-img {
+    columns: 300px;
+    position: absolute;
+    top: 10px;
+    z-index: 1;
+}
+
+img {
+    width: 100%;
+    border-radius: 1rem;
+    filter: drop-shadow(0 0 0.75rem #00000070);
+    animation: autoShowAnimation both;
+    animation-timeline: view(70% 5%);
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.container-img img:hover {
+    scale: 1.1;
+}
+
+.container-img:hover> :not(:hover) {
+    scale: 0.99;
+}
+
+.container-img:active> :not(:active) {
+    scale: 0.96;
+    filter: grayscale(30%);
+}
+
+@keyframes autoShowAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(200px) scale(0.3);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+
+}
+
+@media screen and (max-width: 1000px) {
+
+    .parent h3 {
+        font-weight: 700;
+        font-size: 5em;
+        line-height: 1.5em;
+    }
+
+    .parent::before {
+        font-weight: 700;
+        font-size: 5em;
+        line-height: 1.5em;
+    }
+
+    img {
+        width: 90%;
+        border-radius: 3.5rem;
+        animation: none;
+    }
+
+    .container-img img:hover {
+        scale: 1.01;
+    }
+
+    .container-img:hover> :not(:hover) {
+        scale: 0.99;
+    }
+
+    .container-img:active> :not(:active) {
+        scale: 0.96;
+        filter: grayscale(90%);
+    }
+
+
+
+}
