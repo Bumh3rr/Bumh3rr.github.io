@@ -43,7 +43,7 @@ body {
     position: fixed;
     z-index: 1;
     padding: 50px;
-    background-color: #fff5;
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 10px;
     margin: 50px auto;
     max-width: 600px;
