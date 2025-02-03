@@ -9,7 +9,10 @@ var span = document.getElementsByClassName("close")[0];
 
 // Cuando el usuario hace clic en el botón, abre el modal
 btn.onclick = function() {
-    modal.style.display = "block";
+    //delay
+    setTimeout(function() {
+        modal.style.display = "block";
+    }, 700);
 }
 
 // Cuando el usuario hace clic en <span> (x), cierra el modal

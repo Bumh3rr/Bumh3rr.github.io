@@ -21,13 +21,13 @@ body {
     position: relative;
 }
 
-.gallery{
+.gallery {
     padding: 0px 20px;
     z-index: 0;
     columns: 300px;
 }
 
-.gallery img{
+.gallery img {
     width: 100%;
     height: auto;
     margin: 10px 0;
@@ -46,23 +46,25 @@ body {
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 10px;
     margin: 50px 0px;
-    max-width: 600px;
+    width: clamp(300px, 80%, 600px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     animation: openView 4s ease-in-out 1s;
 }
+
 @keyframes openView {
     0% {
         opacity: 0;
         transform: translate(-50%, -50%);
     }
+
     100% {
         opacity: 1;
         transform: translate(-50%, -50%);
     }
-    
+
 }
 
 h1 {
@@ -88,75 +90,76 @@ button {
     border-style: solid;
     border-width: 9px;
     border-radius: 35px;
-    transition: transform 400ms cubic-bezier(.68,-0.55,.27,2.5), 
-    border-color 400ms ease-in-out,
-    background-color 400ms ease-in-out;
+    transition: transform 400ms cubic-bezier(.68, -0.55, .27, 2.5),
+        border-color 400ms ease-in-out,
+        background-color 400ms ease-in-out;
     word-spacing: -2px;
     width: 80px;
     height: 50px;
-  }
-  
-  @keyframes movingBorders {
+}
+
+@keyframes movingBorders {
     0% {
-      border-color: #fce4e4;
+        border-color: #fce4e4;
     }
-  
+
     50% {
-      border-color: #ffd8d8;
+        border-color: #ffd8d8;
     }
-  
+
     90% {
-      border-color: #fce4e4;
+        border-color: #fce4e4;
     }
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #eee;
     transform: scale(105%);
     animation: movingBorders 3s infinite;
-  }
-  
-  .filled,
-  .empty {
+}
+
+
+.filled,
+.empty {
     fill: rgb(255, 110, 110);
     transition: opacity 100ms ease-in-out;
-  }
-  
-  .filled {
+}
+
+.filled {
     position: absolute;
     opacity: 0;
-  }
-  
-  @keyframes beatingHeart {
+}
+
+@keyframes beatingHeart {
     0% {
-      transform: scale(1);
+        transform: scale(1);
     }
-  
+
     15% {
-      transform: scale(1.15);
+        transform: scale(1.15);
     }
-  
+
     30% {
-      transform: scale(1);
+        transform: scale(1);
     }
-  
+
     45% {
-      transform: scale(1.15);
+        transform: scale(1.15);
     }
-  
+
     60% {
-      transform: scale(1);
+        transform: scale(1);
     }
-  }
-  
-  button:hover .empty {
+}
+
+button:hover .empty {
     opacity: 0;
-  }
-  
-  button:hover .filled {
+}
+
+button:hover .filled {
     opacity: 1;
     animation: beatingHeart 1.2s infinite;
-  }
+}
 
 .modal {
     display: none;
@@ -181,6 +184,11 @@ button {
     position: relative;
     color: #333;
 }
+.modal-content h2{
+    font-family: "Caveat Brush", cursive;
+    font-size: clamp(1em, 5vw, 2em);
+    color: #e91e63;
+}
 
 .close {
     color: #aaa;
@@ -195,4 +203,98 @@ button {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+
+
+.container-love {
+    position: absolute;
+    bottom: 6%;
+    right: 6%;
+}
+
+.container-love .preloader {
+    animation: rotate 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+
+@keyframes rotate {
+    50% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(720deg);
+    }
+}
+
+.preloader span {
+    --c: #f23f3f;
+    position: absolute;
+    display: block;
+    height: 64px;
+    width: 64px;
+    background: var(--c);
+    border: 1px solid var(--c);
+    border-radius: 100%;
+}
+
+.preloader span:nth-child(1) {
+    transform: translate(-28px, -28px);
+    animation: shape_1 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+
+@keyframes shape_1 {
+    60% {
+        transform: scale(0.4);
+    }
+}
+
+.preloader span:nth-child(2) {
+    transform: translate(28px, -28px);
+    animation: shape_2 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+
+@keyframes shape_2 {
+    40% {
+        transform: scale(0.4);
+    }
+}
+
+.preloader span:nth-child(3) {
+    position: relative;
+    border-radius: 0px;
+    transform: scale(0.98) rotate(-45deg);
+    animation: shape_3 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+
+@keyframes shape_3 {
+    50% {
+        border-radius: 100%;
+        transform: scale(0.5) rotate(-45deg);
+    }
+
+    100% {
+        transform: scale(0.98) rotate(-45deg);
+    }
+}
+
+.shadow {
+    position: relative;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    height: 16px;
+    width: 64px;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+    border: 1px solid #d9d9d9;
+    animation: shadow 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+
+@keyframes shadow {
+    50% {
+        transform: translateX(-50%) scale(0.5);
+        border-color: #f2f2f2;
+    }
 }
