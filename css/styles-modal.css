@@ -1,0 +1,169 @@
+:root {
+    --accent: #FF6B6B;
+    --boder-radius-card-modal: 8px;
+
+    --color-border-modal: rgba(231, 231, 231, 0.56);
+    --color-text-modal: #333333;
+    --color-text-modal-secondary: #666666;
+}
+
+.bum-modal {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.bum-modal.show {
+    display: flex;
+}
+
+.bum-modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 26px;
+    padding: 30px 40px;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.bum-close-button {
+    background-color: transparent;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    cursor: pointer;
+    border: 2px solid var(--color-border-modal);
+    border-radius: 9px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.4s ease-out;
+}
+
+.bum-close-button svg {
+    display: block;
+    width: 18px;
+    height: 18px;
+}
+
+.checkmark {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--boder-radius-card-modal);
+    padding: 6px;
+    box-shadow: 1px 3px 9px rgba(0, 0, 0, 0.15);
+}
+
+#bum-modal-success .checkmark {
+    background-color: #44c77440;
+}
+
+#modal-error .checkmark {
+    background-color: #ed494940;
+}
+
+#modal-info .checkmark {
+    background-color: #2f6cff40;
+}
+
+#modal-warning .checkmark {
+    background-color: #FAD42840;
+}
+
+.checkmark svg {
+    width: 100%;
+    height: 100%;
+}
+
+.bum-modal-content h2 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-text-modal);
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+
+.bum-modal-content p {
+    font-weight: 500;
+    font-size: 0.8rem;
+    color: var(--color-text-modal-secondary);
+    margin-bottom: 20px;
+    opacity: 0.6;
+}
+
+.action-button {
+    background-color: transparent;
+    color: var(--color-text-modal);
+    border: 2px solid var(--color-border-modal);
+    width: 100%;
+    padding: 9px 20px;
+    border-radius: var(--boder-radius-card-modal);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease,
+    transform 0.4s ease-out;
+}
+
+.action-button-accentColor {
+    color: #333;
+    border: 2px solid var(--color-border-modal);
+    width: 100%;
+    padding: 9px 20px;
+    border-radius: var(--boder-radius-card-modal);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    transition: background-color 0.3s ease,
+    transform 0.4s ease-out;
+}
+
+#btn-ok-error,
+#btn-ok-info,
+#btn-ok-warning {
+    color: #fff;
+}
+
+#btn-ok-error {
+    background-color: #ed4949;
+}
+
+#btn-ok-info {
+    background-color: #2f6cff;
+}
+
+#btn-ok-warning {
+    background-color: #FAD428;
+}
+
+.action-button:hover,
+.bum-close-button:hover,
+.action-button-accentColor:hover,
+.bum-close-button:hover {
+    background-color: #dcdcdc;
+    transform: scale(1.05);
+}
+
+.action-button:active,
+.bum-close-button:active,
+.action-button-accentColor:active,
+.bum-close-button:active {
+    background-color: #c9c9c9;
+    transform: scale(0.99);
+}
