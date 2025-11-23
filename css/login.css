@@ -1,0 +1,169 @@
+:root{
+    --primary-color: #5046e5;
+    --secondary-color: #F6F7FA;
+    --text-color: #333;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    --box-shadow-2: 1px 8px 26px rgba(0,0,0,0.1);
+
+    --background-color-icon: #5046e528;
+    --border-color-icon: #5046e550;
+    --primary-color-dark: #3b35b3;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F6F7FA;
+}
+.container-login{
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #e8e8e8;
+    box-shadow: var(--box-shadow);
+}
+.container-login .icon{
+    width: 60px;
+    height: 60px;
+    background-color: var(--background-color-icon);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 2px solid var(--border-color-icon);
+}
+.container-login .icon svg{
+    width: 38px;
+    height: 38px;
+}
+
+.container-login .title{
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+.container-login .description{
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.container-login form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.container-login form div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+.container-login form div label{
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 5px;
+}
+.container-login form div input{
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+}
+.container-login form div input:focus{
+    border-color: var(--primary-color);
+    outline: none;
+}
+.container-login form button{
+    padding: 10px;
+    font-size: 14px;
+    color: #fff;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 16px;
+    transition: background-color 0.3s;
+}
+.container-login form button:hover{
+    background-color: var(--primary-color-dark);
+}
+
+
+.loading-overlay {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+}
+.loading-overlay .spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+}
+
+.spinner .dot {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.spinner .dot::after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner .dot {
+    animation: spin 2s infinite;
+}
+
+.spinner .dot:nth-child(2) {
+    animation-delay: 100ms;
+}
+
+.spinner .dot:nth-child(3) {
+    animation-delay: 200ms;
+}
+
+.spinner .dot:nth-child(4) {
+    animation-delay: 300ms;
+}
+
+.spinner .dot:nth-child(5) {
+    animation-delay: 400ms;
+}
